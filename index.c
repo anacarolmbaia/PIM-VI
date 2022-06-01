@@ -12,7 +12,7 @@ struct VarG {
 
 struct Cadastro {
     char NomeFantasia[25];
-    char Tipo[35];
+    char Tipo[7];
     char Cnpj[15];
 
 }; // Variáveis do tipo Cadastro.Loja
