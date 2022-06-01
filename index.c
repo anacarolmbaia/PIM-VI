@@ -15,17 +15,17 @@ struct Cadastro {
     char Tipo[35];
     char Cnpj[15];
 
-}; // Variáveis do tipo Cadastro.Empresa
+}; // Variáveis do tipo Cadastro.Loja
 
 FILE* DB; //Ponteiro do Banco de dados
 
 struct VarG Global;
-struct Cadastro Empresa; // Definição das Structs
+struct Cadastro Loja; // Definição das Structs
 
 int main() {
     system("clear"); //Limpa a tela (Linux)
     printf("=========================\n");
-    printf(" GERENCIADOR DE EMPRESAS\n");
+    printf(" GERENCIADOR DE LOJAS\n");
     printf("=========================\n\n");
 
     printf("[1] - Cadastrar\n");
@@ -79,7 +79,7 @@ int main() {
             printf(" REMOVER\n");
             printf("=========\n\n");
 
-            printf("Para remover os dados de um empresa, acesse\no arquivo ");
+            printf("Para remover os dados de um loja, acesse\no arquivo ");
             printf("dados.txt e realize o processo \nmanualmente, salvando o ");
             printf("arquivo logo em seguida.\n\n");
 
@@ -126,17 +126,17 @@ void Cadastro() {
 
     } else {
         printf("==========\n");
-        printf(" CADASTRO\n");
+        printf(" CADASTRO DA LOJA\n");
         printf("==========\n");
 
         printf("\nNomeFantasia: ");
-        fgets(Empresa.NomeFantasia, 25, stdin); //Recebe a String NomeFantasia
+        fgets(Loja.NomeFantasia, 25, stdin); //Recebe a String NomeFantasia
         
         printf("\nTipo: ");
-        fgets(Empresa.Tipo, 35, stdin); //Recebe a String Tipo
+        fgets(Loja.Tipo, 35, stdin); //Recebe a String Tipo
         
         printf("\nDigite seu Cnpj: ");
-        fgets(Empresa.Cnpj, 15, stdin); //Recebe a String Cnpj
+        fgets(Loja.Cnpj, 15, stdin); //Recebe a String Cnpj
 
         system("clear");
         printf("\n=============================\n");
@@ -144,7 +144,7 @@ void Cadastro() {
         scanf("%c", &Global.Cd); //Conclusão do cadastro
 
         if(Global.Cd == 's') {
-            fprintf(DB, "NomeFantasia: %sTipo: %sCnpj: %s", Empresa.NomeFantasia, Empresa.Tipo, Empresa.Cnpj);
+            fprintf(DB, "NomeFantasia: %sTipo: %sCnpj: %s", Loja.NomeFantasia, Loja.Tipo, Loja.Cnpj);
             fprintf(DB, "----------------------\n"); //Salva os dados
 
             fclose(DB); //Fecha o Banco de dados
@@ -187,7 +187,7 @@ void Listar() {
 
     } else {
         printf("======================\n");
-        printf(" LISTAGEM DE EMPRESAS\n");
+        printf(" LISTAGEM DE LOJAS\n");
         printf("======================\n\n");
 
         char listagem[250]; //String geral para os dados
