@@ -143,11 +143,11 @@ void Cadastro() {
         printf("Finalizar cadastro? [s/n] : ");
         scanf("%c", &Global.Cd); //Conclusão do cadastro
 
-        if(Global.Cd == 's') {
+        if(Global.Cd == 's') { //Isere no banco de dados os valores válidos 
             fprintf(DB, "NomeFantasia: %sTipo: %sCnpj: %s", Loja.NomeFantasia, Loja.Tipo, Loja.Cnpj);
             fprintf(DB, "----------------------\n"); //Salva os dados
 
-            fclose(DB); //Fecha o Banco de dados
+            fclose(DB); //Fecha o banco de dados
 
             system("clear");
             printf("######################\n");
@@ -157,7 +157,7 @@ void Cadastro() {
             sleep(1);
             main();
 
-        } else if(Global.Cd == 'n') {
+        } else if(Global.Cd == 'n') { //Caso os campos esteja vazios
             system("clear");
             printf("Cadastro Cancelado.\nVoltando ao Menu Principal...\n");
             fclose(DB); //Fecha DB
@@ -165,8 +165,8 @@ void Cadastro() {
             sleep(1);
             main();
 
-        } else {
-            printf("Valor inválido. Tente novamente...\n");
+        } else { //Possivelmente os valores estão invalidos
+            printf("Valor inválido. Tente novamente...\n"); 
             fclose(DB); //Fecha DB
             sleep(1);
             Cadastro();
